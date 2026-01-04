@@ -1,0 +1,76 @@
+/* ===============================
+   SUDISU FOOTER
+================================ */
+
+.footer {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 60px 10% 30px;
+}
+
+/* GRID */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* LOGO */
+.footer-logo img {
+  width: 140px;
+  margin-bottom: 15px;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e6e9ec;
+}
+
+/* TITLES */
+.footer h4 {
+  margin-bottom: 18px;
+  color: #b3201f;
+}
+
+/* LINKS */
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #e6e9ec;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #e6e9ec;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #b3201f;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  color: #e6e9ec;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

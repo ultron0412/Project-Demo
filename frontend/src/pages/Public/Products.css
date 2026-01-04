@@ -1,0 +1,141 @@
+/* ===== SHOP LAYOUT ===== */
+.shop-layout {
+  display: flex;
+  gap: 40px;
+  padding: 80px 10%;
+  background: #fff;
+}
+
+/* ===== FILTER SIDEBAR ===== */
+.filter-sidebar {
+  width: 260px;
+}
+
+.filter-sidebar h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.filter-title {
+  margin-top: 35px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: #444;
+  font-size: 14px;
+}
+
+.filter-option input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.filter-option:hover {
+  color: #b22222;
+}
+
+.filter-sidebar select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.shop-products {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.product-card h4 {
+  margin: 14px 0 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+}
+
+.product-card p {
+  font-size: 15px;
+  font-weight: 600;
+  color: #b22222;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .shop-layout {
+    padding: 60px 6%;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-layout {
+    flex-direction: column;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+/* ===== HOVER OVERLAY ===== */
+.product-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-img-wrapper:hover .product-overlay {
+  opacity: 1;
+}
+
+.overlay-btn {
+  padding: 10px 18px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+  background: #b22222;
+  color: #fff;
+}

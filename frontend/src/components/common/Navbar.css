@@ -1,0 +1,83 @@
+/* ===============================
+   PREMIUM NAVBAR
+================================ */
+
+.navbar-wrapper {
+  background: #ffffff;
+  border-bottom: 1px solid #e6e9ec;
+}
+
+.navbar {
+  max-width: 1300px;
+  margin: auto;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.navbar-logo h2 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+}
+
+/* MENU */
+.navbar-menu {
+  display: flex;
+  gap: 40px;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #1a1a1a;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* HOVER + ACTIVE */
+.navbar-menu a:hover,
+.navbar-menu a.active {
+  color: #b3201f;
+}
+
+.navbar-menu a.active::after,
+.navbar-menu a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #b3201f;
+}
+
+/* ICONS */
+.navbar-icons {
+  display: flex;
+  gap: 18px;
+}
+
+.navbar-icons .icon {
+  font-size: 16px;
+  cursor: pointer;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.navbar-icons .icon:hover {
+  color: #b3201f;
+}
+
+/* ===============================
+   RESPONSIVE (optional later)
+================================ */
+
+@media (max-width: 900px) {
+  .navbar-menu {
+    display: none;
+  }
+}
