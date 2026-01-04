@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { FaHeart, FaShoppingCart, FaEye } from "react-icons/fa";
 import "./Product.css";
 
 // IMAGES
@@ -10,49 +12,72 @@ import mix from "../../assets/images/mix.jpg";
 import meat from "../../assets/images/meat.jpg";
 import cookingWomen from "../../assets/images/cooking women.jpg";
 
-const spices = [
-  { id: 1, name: "Chilli", img: chilli },
-  { id: 2, name: "Chilli Powder", img: chilliPowder },
-  { id: 3, name: "Cumin Seeds", img: cumin },
-  { id: 4, name: "Turmeric Powder", img: turmeric },
-  { id: 5, name: "Garam Masala", img: garam },
-  { id: 6, name: "Mixed Spices", img: mix },
-  { id: 7, name: "Meat Masala", img: meat },
-  { id: 8, name: "Traditional Cooking Spices", img: cookingWomen },
+const products = [
+  { id: 1, name: "Chilli", category: "Whole", img: chilli },
+  { id: 2, name: "Chilli Powder", category: "Powder", img: chilliPowder },
+  { id: 3, name: "Cumin Seeds", category: "Powder", img: cumin },
+  { id: 4, name: "Turmeric Powder", category: "Powder", img: turmeric },
+  { id: 5, name: "Garam Masala", category: "Masala", img: garam },
+  { id: 6, name: "Mixed Spices", category: "Masala", img: mix },
+  { id: 7, name: "Meat Masala", category: "Masala", img: meat },
+  { id: 8, name: "Traditional Cooking Spices", category: "Traditional", img: cookingWomen },
 ];
 
 export default function Products() {
+  const [category, setCategory] = useState("All");
+
+  const filtered =
+    category === "All"
+      ? products
+      : products.filter((p) => p.category === category);
+
   return (
-    <section className="our-spices">
-      <h2>Our Spices</h2>
+    <section className="shop-page">
+      {/* SIDEBAR */}
+      <aside className="shop-sidebar">
+        <h3>Categories</h3>
+        {["All", "Whole", "Powder", "Masala", "Traditional"].map((cat) => (
+          <button
+            key={cat}
+            className={category === cat ? "active" : ""}
+            onClick={() => setCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </aside>
 
-      <div className="spices-grid">
-        {spices.map((item) => (
-          <div className="spice-card" key={item.id}>
-            <div className="spice-img-wrapper">
-              <img src={item.img} alt={item.name} />
+      {/* PRODUCTS */}
+      <div className="shop-content">
+        <h2>Our Spices</h2>
 
-              {/* HOVER OVERLAY */}
-              <div className="spice-overlay">
-                <button
-                  className="spice-btn"
-                  onClick={() => alert(`View ${item.name}`)}
-                >
-                  View
-                </button>
+        <div className="product-grid">
+          {filtered.map((item) => (
+            <div className="product-card" key={item.id}>
+              <div className="product-img">
+                <img src={item.img} alt={item.name} />
 
-                <button
-                  className="spice-btn spice-btn-buy"
-                  onClick={() => alert(`Buy ${item.name}`)}
-                >
-                  Buy
-                </button>
+                {/* HOVER ACTIONS */}
+                <div className="product-actions">
+                  <button title="Add to Cart">
+                    <FaShoppingCart />
+                  </button>
+                  <button title="Wishlist">
+                    <FaHeart />
+                  </button>
+                  <button title="Quick View">
+                    <FaEye />
+                  </button>
+                </div>
+              </div>
+
+              <div className="product-info">
+                <h4>{item.name}</h4>
+                <span>{item.category}</span>
               </div>
             </div>
-
-            <p>{item.name}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

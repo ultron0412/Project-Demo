@@ -1,165 +1,59 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/common/Navbar";
-import Hero from "../../components/sections/Hero";
 import "./Products.css";
 
 // IMAGES
-import chilli from "../../assets/images/chilli.jpg";
+import chilli from "../../assets/images/Chilli.jpg";
 import chilliPowder from "../../assets/images/chillipowder.jpg";
-import cookingWomen from "../../assets/images/cooking women.jpg";
 import cumin from "../../assets/images/cumin.jpg";
-import dhaniya from "../../assets/images/dhaniya.jpg";
+import turmeric from "../../assets/images/dhaniya.jpg";
 import garam from "../../assets/images/garam.jpg";
-import meat from "../../assets/images/meat.jpg";
 import mix from "../../assets/images/mix.jpg";
+import meat from "../../assets/images/meat.jpg";
+import cookingWomen from "../../assets/images/cooking women.jpg";
 
-const allProducts = [
-  {
-    id: 1,
-    name: "Whole Red Chilli",
-    category: "Chilies",
-    price: 9,
-    img: chilli,
-  },
-  {
-    id: 2,
-    name: "Chilli Powder",
-    category: "Chilies",
-    price: 7,
-    img: chilliPowder,
-  },
-  {
-    id: 3,
-    name: "Cumin Seeds",
-    category: "Herbs",
-    price: 6,
-    img: cumin,
-  },
-  {
-    id: 4,
-    name: "Coriander (Dhaniya)",
-    category: "Herbs",
-    price: 5,
-    img: dhaniya,
-  },
-  {
-    id: 5,
-    name: "Garam Masala",
-    category: "Spice Blends",
-    price: 10,
-    img: garam,
-  },
-  {
-    id: 6,
-    name: "Mixed Spices",
-    category: "Spice Blends",
-    price: 8,
-    img: mix,
-  },
-  {
-    id: 7,
-    name: "Meat Masala",
-    category: "Spice Blends",
-    price: 11,
-    img: meat,
-  },
-  {
-    id: 8,
-    name: "Traditional Cooking Spices",
-    category: "Specialty",
-    price: 12,
-    img: cookingWomen,
-  },
+const products = [
+  { id: 1, name: "Chilli", img: chilli },
+  { id: 2, name: "Chilli Powder", img: chilliPowder },
+  { id: 3, name: "Cumin Seeds", img: cumin },
+  { id: 4, name: "Turmeric Powder", img: turmeric },
+  { id: 5, name: "Garam Masala", img: garam },
+  { id: 6, name: "Mixed Spices", img: mix },
+  { id: 7, name: "Meat Masala", img: meat },
+  { id: 8, name: "Traditional Cooking Spices", img: cookingWomen },
 ];
 
 export default function Products() {
   const navigate = useNavigate();
 
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [maxPrice, setMaxPrice] = useState(50);
-
-  const filteredProducts = allProducts.filter((product) => {
-    return (
-      (selectedCategory === "All" ||
-        product.category === selectedCategory) &&
-      product.price <= maxPrice
-    );
-  });
-
   return (
-    <>
-      <Navbar />
-      <Hero title="Shop" breadcrumb="Home / Shop" />
+    <section className="shop-page show">
+      <div className="shop-container">
+        <h1 className="shop-title">Our Spices</h1>
+        <p className="shop-subtitle">
+          Authentic Nepalese spices crafted with purity and tradition
+        </p>
 
-      <section className="shop-layout">
-        {/* FILTER SIDEBAR */}
-        <aside className="filter-sidebar">
-          <h3>Category</h3>
+        <div className="shop-grid">
+          {products.map((item) => (
+            <div className="shop-card" key={item.id}>
+              <div className="shop-image">
+                <img src={item.img} alt={item.name} />
 
-          {[
-            "All",
-            "Chilies",
-            "Herbs",
-            "Spice Blends",
-            "Specialty",
-          ].map((cat) => (
-            <label key={cat} className="filter-option">
-              <input
-                type="radio"
-                checked={selectedCategory === cat}
-                onChange={() => setSelectedCategory(cat)}
-              />
-              {cat}
-            </label>
-          ))}
-
-          <h3 className="filter-title">Max Price</h3>
-
-          <select
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(Number(e.target.value))}
-          >
-            <option value="50">Any</option>
-            <option value="12">Under $12</option>
-            <option value="10">Under $10</option>
-            <option value="8">Under $8</option>
-          </select>
-        </aside>
-
-        {/* PRODUCTS GRID */}
-        <div className="shop-products">
-          {filteredProducts.map((product) => (
-            <div className="product-card" key={product.id}>
-              <div className="product-img-wrapper">
-                <img src={product.img} alt={product.name} />
-
-                {/* HOVER OVERLAY */}
-                <div className="product-overlay">
+                <div className="shop-overlay">
                   <button
-                    className="overlay-btn"
-                    onClick={() => navigate(`/product/${product.id}`)}
+                    onClick={() => navigate(`/product/${item.id}`)}
                   >
-                    View
+                    View Product
                   </button>
-
-                  <button
-                    className="overlay-btn"
-                    onClick={() =>
-                      alert(`${product.name} added to cart (coming next)`)
-                    }
-                  >
-                    Add to Cart
-                  </button>
+                  <button className="buy-btn">Buy Now</button>
                 </div>
               </div>
 
-              <h4>{product.name}</h4>
-              <p>${product.price}</p>
+              <h3 className="shop-name">{item.name}</h3>
             </div>
           ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

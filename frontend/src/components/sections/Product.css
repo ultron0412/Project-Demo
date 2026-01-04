@@ -1,139 +1,125 @@
-/* ================================
-   OUR SPICES SECTION
-================================ */
-
-.our-spices {
-  padding: 90px 10%;
-  background: #ffffff;
-  text-align: center;
-}
-
-.our-spices h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 60px;
-  color: #111;
-}
-
-/* ================================
-   SPICES GRID
-================================ */
-
-.spices-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.shop-page {
+  display: flex;
+  padding: 40px;
   gap: 40px;
 }
 
-/* ================================
-   SPICE CARD
-================================ */
-
-.spice-card {
-  text-align: center;
+/* SIDEBAR */
+.shop-sidebar {
+  width: 220px;
+  position: sticky;
+  top: 100px;
 }
 
-/* IMAGE WRAPPER */
-.spice-img-wrapper {
+.shop-sidebar h3 {
+  margin-bottom: 15px;
+}
+
+.shop-sidebar button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-sidebar button:hover,
+.shop-sidebar button.active {
+  background: #b11226;
+  color: white;
+}
+
+/* CONTENT */
+.shop-content {
+  flex: 1;
+}
+
+.shop-content h2 {
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.product-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* IMAGE */
+.product-img {
   position: relative;
   overflow: hidden;
 }
 
-.spice-img-wrapper img {
+.product-img img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: 0.4s;
 }
 
-/* IMAGE ZOOM */
-.spice-card:hover img {
-  transform: scale(1.05);
+.product-card:hover img {
+  transform: scale(1.1);
 }
 
-/* ================================
-   HOVER OVERLAY
-================================ */
-
-.spice-overlay {
+/* ACTIONS */
+.product-actions {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 15px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: 0.3s;
 }
 
-.spice-img-wrapper:hover .spice-overlay {
+.product-card:hover .product-actions {
   opacity: 1;
 }
 
-/* BUTTONS */
-.spice-btn {
-  padding: 10px 22px;
-  font-size: 13px;
-  letter-spacing: 1px;
-  background: #fff;
+.product-actions button {
+  background: white;
   border: none;
+  padding: 12px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-.spice-btn:hover {
-  background: #111;
-  color: #fff;
+.product-actions button:hover {
+  background: #b11226;
+  color: white;
 }
 
-.spice-btn-buy {
-  background: #b22222;
-  color: #fff;
+/* INFO */
+.product-info {
+  padding: 15px;
+  text-align: center;
 }
 
-.spice-btn-buy:hover {
-  background: #8b1a1a;
+.product-info h4 {
+  margin-bottom: 5px;
 }
 
-/* ================================
-   TEXT
-================================ */
-
-.spice-card p {
-  margin-top: 16px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #222;
-}
-
-/* ================================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 1024px) {
-  .our-spices {
-    padding: 70px 6%;
-  }
-}
-
-@media (max-width: 768px) {
-  .spices-grid {
-    gap: 30px;
-  }
-
-  .spice-img-wrapper img {
-    height: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  .our-spices h2 {
-    font-size: 24px;
-  }
-
-  .spice-img-wrapper img {
-    height: 160px;
-  }
+.product-info span {
+  font-size: 13px;
+  color: gray;
 }

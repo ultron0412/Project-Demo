@@ -1,57 +1,43 @@
 .product-detail {
-  display: flex;
-  gap: 60px;
-  padding: 80px 10%;
+  padding: 140px 40px;
 }
 
-.product-image img {
-  width: 420px;
+.detail-card {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
-.product-info h1 {
-  font-family: "Playfair Display", serif;
-  margin-bottom: 10px;
+.detail-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
 }
 
-.rating {
-  color: #f4b400;
-  margin-bottom: 15px;
-}
-
-.rating span {
-  color: #777;
-  font-size: 14px;
-}
-
-.price {
-  font-size: 24px;
-  color: #b22222;
-  margin-bottom: 20px;
-}
-
-.description {
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-.options {
-  margin-bottom: 25px;
-}
-
-.options select {
-  padding: 10px;
-  width: 200px;
-}
-
-.add-to-cart {
-  padding: 14px 40px;
-  background: #111;
+.buy-btn {
+  padding: 12px 24px;
+  background: #b3201f;
   color: #fff;
   border: none;
   cursor: pointer;
 }
 
-.add-to-cart:hover {
-  background: #b22222;
+.back-btn {
+  margin-bottom: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* animation */
+.fade-in {
+  animation: fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

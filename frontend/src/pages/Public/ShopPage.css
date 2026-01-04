@@ -1,0 +1,101 @@
+.shop-layout {
+  display: flex;
+  padding: 120px 40px;
+  background: #fafafa;
+}
+
+.shop-sidebar {
+  width: 220px;
+  padding-right: 30px;
+}
+
+.shop-sidebar h3 {
+  margin-bottom: 10px;
+}
+
+.shop-sidebar button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 6px;
+  background: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.shop-sidebar button.active {
+  background: #b3201f;
+  color: #fff;
+}
+
+.shop-sidebar select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.count {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.shop-products {
+  flex: 1;
+}
+
+.shop-products h1 {
+  margin-bottom: 30px;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.shop-card {
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.shop-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.actions button {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 30px;
+  width: 320px;
+  text-align: center;
+}
+
+.modal-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}

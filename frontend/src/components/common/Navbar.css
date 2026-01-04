@@ -1,83 +1,162 @@
-/* ===============================
-   PREMIUM NAVBAR
-================================ */
-
+/* ===== NAVBAR BASE ===== */
 .navbar-wrapper {
+  width: 100%;
   background: #ffffff;
-  border-bottom: 1px solid #e6e9ec;
+  transition: all 0.3s ease;
 }
 
 .navbar {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: auto;
-  padding: 22px 24px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* LOGO */
+/* ===== LOGO ===== */
 .navbar-logo h2 {
   font-size: 22px;
-  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
   color: #1a1a1a;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .navbar-menu {
   display: flex;
-  gap: 40px;
+  gap: 28px;
 }
 
 .navbar-menu a {
   text-decoration: none;
-  font-size: 14px;
-  color: #1a1a1a;
+  color: #444;
   font-weight: 500;
   position: relative;
-  padding-bottom: 4px;
 }
 
-/* HOVER + ACTIVE */
-.navbar-menu a:hover,
-.navbar-menu a.active {
-  color: #b3201f;
-}
-
-.navbar-menu a.active::after,
-.navbar-menu a:hover::after {
+.navbar-menu a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -6px;
-  width: 100%;
+  width: 0;
   height: 2px;
   background: #b3201f;
+  transition: width 0.3s;
 }
 
-/* ICONS */
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
+  width: 100%;
+}
+
+/* ===== ICONS ===== */
 .navbar-icons {
   display: flex;
+  align-items: center;
   gap: 18px;
 }
 
-.navbar-icons .icon {
-  font-size: 16px;
+.navbar-icons svg {
   cursor: pointer;
   color: #1a1a1a;
-  transition: color 0.3s ease;
+  transition: transform 0.2s ease, color 0.3s ease;
 }
 
-.navbar-icons .icon:hover {
+.navbar-icons svg:hover {
+  color: #b3201f;
+  transform: scale(1.1);
+}
+
+/* ===== CART BADGE ===== */
+.cart-icon {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #b3201f;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* ===== USER DROPDOWN ===== */
+.user-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 10px 14px;
+  display: none;
+  min-width: 120px;
+}
+
+.user-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu p {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu p:hover {
   color: #b3201f;
 }
 
-/* ===============================
-   RESPONSIVE (optional later)
-================================ */
+/* ===== SEARCH MODAL ===== */
+.search-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
 
-@media (max-width: 900px) {
-  .navbar-menu {
-    display: none;
-  }
+.search-box {
+  background: #fff;
+  padding: 30px;
+  width: 350px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.close-btn {
+  background: #b3201f;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* ===== STICKY NAVBAR ===== */
+.navbar-wrapper.sticky {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.12);
 }
