@@ -160,3 +160,11 @@
   z-index: 100;
   box-shadow: 0 2px 15px rgba(0,0,0,0.12);
 }
+.premium-navbar {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  padding: 18px 60px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
