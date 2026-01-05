@@ -7,6 +7,8 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="shop-card">
+      <div className="card product-card">
+
       <img src={product.img} alt={product.name} />
       <h4>{product.name}</h4>
 
@@ -15,6 +17,7 @@ export default function ProductCard({ product }) {
         <button onClick={() => toggleWishlist(product)}>
           {liked ? "♥" : "♡"}
         </button>
+      </div>
       </div>
     </div>
   );

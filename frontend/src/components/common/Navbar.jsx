@@ -33,6 +33,7 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
+      <nav className="navbar premium-navbar">
       <header className="navbar-wrapper">
         <div className="navbar">
           {/* LOGO */}
@@ -82,6 +83,7 @@ export default function Navbar() {
           </div>
         </div>
       </header>
+      </nav>
 
       {/* SEARCH MODAL */}
       {showSearch && (
